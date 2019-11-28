@@ -52,8 +52,8 @@ It includes:
 
 1. Fork this repo
 2. Clone it to your machine
-3. Run `yarn install`
-4. Run `yarn start` 
+3. Run `npm install`
+4. Run `npm start` 
 5. Get creating!
 
 
