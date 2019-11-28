@@ -25,11 +25,11 @@ Also, to help save time on the things that are slow:
 - Don't build any secure authentication – we'll let the users log in with just their email address
 - Don't worry about building a backend – this starter kit includes a localStorage hosted database
 - Don't worry about security – this is all all going to be demoed on your laptop
-- Don't worry about code quality – if you've got this far we're already confident that you can write good code!
+- Don't worry about code quality or testing – if you've got this far we're already confident that you can write good code!
 
 The priority here is to build something which **works**, and **solves the user need.**
 
- *We mean that. This is't code for "spend 18 hours on it and tell us it was 3 to impress". We want to embrace the limitations of creating something in a short time.
+ *We mean that. This isn't code for "spend 18 hours on it and tell us it was 3 to impress". We want to embrace the limitations of creating something in a short time.
 
 ### What we're interested in
 
