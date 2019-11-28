@@ -55,7 +55,17 @@ It includes:
 ![image](https://user-images.githubusercontent.com/965059/69821009-5f80e380-11fa-11ea-99a1-29b5bc5405fb.png)
 
 
+
+### Getting started
+
+1. Fork this repo
+2. Clone it to your machine
+3. Run `yarn install`
+4. Run `yarn start` 
+5. Get creating!
+
+
 ### The output
 
-- Fork this repo and make your changes there. Once you're done, make a PR back into this repo (see [here](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork))
+- You should have forked this repo and make your changes there. Once you're done, make a PR back into this repo (see [here](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork))
 - We'd like to be able to run this ourselves, so please don't add any dependencies to services on your machine. Adding new node modules is fine though!
