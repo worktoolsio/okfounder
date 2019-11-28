@@ -1,11 +1,3 @@
-# Meta: Why we ask you to do a project
-
-We have two aims when asking you to do this project.
-
-Firstly, we'd like to see how you approach a product problem on your own. We don't think "test conditions" gives a good indication of how someone performs when they're at their best, so this gives us a way to see what you do when working on your terms. 
-
-Secondly, we want something that we can pair with you on. We've found that's best when it's a 'greenfield' project in a codebase you're familiar with. 
-
 # The Project
 
 ## "OkFounder"
@@ -69,3 +61,14 @@ It includes:
 
 - You should have forked this repo and make your changes there. Once you're done, make a PR back into this repo (see [here](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork))
 - We'd like to be able to run this ourselves, so please don't add any dependencies to services on your machine. Adding new node modules is fine though!
+
+
+----
+
+# Meta: Why we ask you to do a project
+
+We have two aims when asking you to do this project.
+
+Firstly, we'd like to see how you approach a product problem on your own. We don't think "test conditions" gives a good indication of how someone performs when they're at their best, so this gives us a way to see what you do when working on your terms. 
+
+Secondly, we want something that we can pair with you on. We've found that's best when it's a 'greenfield' project in a codebase you're familiar with. 
