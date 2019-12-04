@@ -1,29 +1,40 @@
 import localStorageDB from "localstoragedb"
 // Uses https://github.com/knadh/localStorageDB
 
-// Initialise. If the database doesn't exist, it is created
-
-////////////////////////////////////////////////
-// Change the dbName if you change the schema or 
-// initial data to reset the db
-const dbName = "userData_2"
-/////////////////////////////////////////////////
+const dbName = "stackerapp"
 
 var db = new localStorageDB(dbName, localStorage);
 
-// Check if the database was just created. Useful for initial database setup
-if( !db.tableExists("posts")) {
+if( !db.tableExists("founders")) {
 
-    // create the "posts" table
-	db.createTable("posts", ["user", "title"]);
+	db.createTable("founders", ["user", "title", "skills"]);
 
-	// insert some data
-	db.insert("posts", {user: "billgates", title: "Microsoft is great"});
-	db.insert("posts", {user: "billgates", title: "It looks like you're writing a letter"});
-	db.insert("posts", {user: "stevejobs", title: "It just works"});
+	db.insert("founders", {
+		user: "Bill Gates", 
+		title: "Microsoft is great",
+		skills: ["mongodb", "nodejs", "python"]
+	});
+	db.insert("founders", {
+		user: "Linus Torvalds",
+		title: "It looks like you're writing a letter",
+		skills: ["javascript", "go"]
+	});
+	db.insert("founders", {
+		user: "Steve Jobs",
+		title: "It just works",
+		skills: ["java"]
+	});
+	db.insert("founders", {
+		user: "Another one",
+		title: "Blablabla",
+		skills: ["go"]
+	});
+	db.insert("founders", {
+		user: "Person",
+		title: "Lorem ipsum dolo",
+		skills: ["nodejs", "express"]
+	});
 
-	// commit the database to localStorage
-	// all create/drop/insert/update/delete operations should be committed
 	db.commit();
 }
 

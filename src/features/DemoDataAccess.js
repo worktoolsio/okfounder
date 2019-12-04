@@ -40,13 +40,13 @@ export default class DataAccessDemo extends React.Component {
 
   componentDidMount() {
     this.fetchUserPosts()
-  
   }
 
   fetchUserPosts() {
     const posts = db.queryAll("posts", {
       query: { user: this.props.username }
     })
+
     this.setState({ posts })
   }
 
