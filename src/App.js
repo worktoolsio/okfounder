@@ -1,10 +1,10 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { ThemeProvider, theme, CSSReset } from '@chakra-ui/core'
+import { ThemeProvider, theme, CSSReset, Flex } from '@chakra-ui/core'
 import LoginWrapper from './auth/LoginWrapper'
 import LogoutPage from './auth/LogoutPage'
-import Frame from './ui/Frame'
-import Home from './Home'
+import Frame from './components/ui/Frame'
+import HomePage from './pages/HomePage'
 
 function App() {
   return (
@@ -14,14 +14,16 @@ function App() {
         <LoginWrapper>
           {({ username, logout }) => (
             <Frame username={username}>
-              <Switch>
-                <Route path="/logout">
-                  <LogoutPage logout={logout} />
-                </Route>
-                <Route path="/">
-                  <Home username={username} />
-                </Route>
-              </Switch>
+              <Flex direction="column" align="center">
+                <Switch>
+                  <Route path="/logout">
+                    <LogoutPage logout={logout} />
+                  </Route>
+                  <Route path="/">
+                    <HomePage username={username} />
+                  </Route>
+                </Switch>
+              </Flex>
             </Frame>
           )}
         </LoginWrapper>

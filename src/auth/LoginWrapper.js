@@ -1,7 +1,7 @@
 /* eslint-disable react/state-in-constructor */
 import React from 'react'
 import { Box, Flex, Input, Button, FormControl, FormLabel, FormHelperText } from '@chakra-ui/core'
-import Header from '../ui/Header'
+import Header from '../components/ui/Header'
 
 export default class LoginWrapper extends React.Component {
   state = { username: localStorage.getItem('username') || null }
