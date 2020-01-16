@@ -1,21 +1,45 @@
 import React from 'react'
-import { Box, Image, Flex, Badge, Text, Button, StarIcon, Icon } from "@chakra-ui/core";
+import { Box, Button, Stack } from "@chakra-ui/core"
+import db from "../data/database"
 
+const setUserLike = likedProfile => {
+  const user = db.queryAll("posts", {
+    query: { username: localStorage.getItem("username") }
+  })
+  if (user.length > 0 && !user[0].likes.includes(likedProfile)) {
+    db.update("posts", { username: localStorage.getItem("username") },
+      row => {
+        row.likes.push(likedProfile)
+        return row
+      }
+    )
+    db.commit()
+  }
+}
 
-const Card = ({title, author}) => {
+const renderButton = (match, profile) => {
+  if (!match) {
+    return  (
+      <Button
+        onClick={() => setUserLike(profile)}
+      >
+        Like This Profile
+      </Button>
+    )
+  }
+  return
+}
+
+const Card = ({profile, title, author, role, bio, match}) => {
  
-    let rating = 3
-    let count = 42
-    return (
-      <Box maxW="sm" mb={4} mt={4} borderWidth="1px" rounded="lg" overflow="hidden">
-       
-        <Box p="6">
-          <Box d="flex" alignItems="baseline">
-            <Badge rounded="full" px="2" variantColor="teal">
-              New
-            </Badge>
-          </Box>
-  
+  let rating = 3
+  let count = 42
+  return (
+    <Box maxW="sm" mb={4} mt={4} borderWidth="1px" rounded="lg" overflow="hidden">
+     
+      <Box p="6">
+        <Stack spacing={1}>
+
           <Box
             mt="1"
             fontWeight="semibold"
@@ -23,32 +47,27 @@ const Card = ({title, author}) => {
             lineHeight="tight"
             isTruncated
           >
-            {title}
-          </Box>
-  
-          <Box>
-            <Box as="span" color="gray.600" fontSize="sm">
-              By{" "} 
-            </Box>
             {author}
           </Box>
   
-          <Box d="flex" mt="2" alignItems="center">
-            {Array(5)
-              .fill("")
-              .map((_, i) => (
-                <Icon
-                name="star"
-                  key={i}
-                  color={i < rating ? "teal.500" : "gray.300"}
-                />
-              ))}
-            <Box as="span" ml="2" color="gray.600" fontSize="sm">
-              {count} reviews
-            </Box>
+          <Box>
+            {title}
           </Box>
-        </Box>
-      </Box>
-    )}
+          
+          <Box>
+            {role}
+          </Box>
 
-    export default Card
+          <Box>
+            {bio}
+          </Box>
+
+          {renderButton(match, profile)}
+
+        </Stack>
+      </Box>
+    </Box>
+  )
+}
+
+export default Card

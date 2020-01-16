@@ -15,12 +15,44 @@ var db = new localStorageDB(dbName, localStorage);
 if( !db.tableExists("posts")) {
 
     // create the "posts" table
-	db.createTable("posts", ["user", "title"]);
+	db.createTable("posts", [
+		"username",
+		"name",
+		"title",
+		"bio",
+		"role",
+		"lookingFor",
+		"hasIdea",
+		"sectors",
+		"locations",
+		"likes"
+	]);
 
 	// insert some data
-	db.insert("posts", {user: "billgates", title: "Microsoft is great"});
-	db.insert("posts", {user: "billgates", title: "It looks like you're writing a letter"});
-	db.insert("posts", {user: "stevejobs", title: "It just works"});
+	db.insert("posts", {
+		username: "bill.gates@microsoft.com",
+		name: "Bill Gates",
+		title: "Microsoft is great",
+		bio: "I founded Microsoft and am very wealthy.",
+		role: "CEO",
+		lookingFor: ["CPO", "COO"],
+		hasIdea: "true",
+		sectors: ["B2B", "Hardware"],
+		locations: ["London", "Stockholm", "Paris"],
+		likes: ["steve.jobs@apple.com"]
+	});
+	db.insert("posts", {
+		username: "steve.jobs@apple.com",
+		name: "Steve Jobs",
+		title: "It just works",
+		bio: "I founded Apple and I'm also very wealthy.",
+		role: "CEO",
+		lookingFor: ["CTO"],
+		hasIdea: "true",
+		sectors: ["Hardware", "Consumer"],
+		locations: ["Remote"],
+		likes: ["jan@jan.com", "bill.gates@microsoft.com"]
+	});
 
 	// commit the database to localStorage
 	// all create/drop/insert/update/delete operations should be committed
