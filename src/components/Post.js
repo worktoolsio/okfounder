@@ -1,5 +1,6 @@
 import React from 'react'
-import { Box, Flex } from '@chakra-ui/core'
+import { Link } from 'react-router-dom'
+import { Box, Button, Flex } from '@chakra-ui/core'
 
 const Post = ({ title, author }) => (
   <Box width="600px" mb={3} p={6} borderWidth="1px" rounded="lg" overflow="hidden">
@@ -11,6 +12,10 @@ const Post = ({ title, author }) => (
       <Box as="span" color="gray.600" fontSize="sm">
         By {author}
       </Box>
+
+      <Button>
+        <Link to={`/posts/${title}`}>View Replies</Link>
+      </Button>
     </Flex>
   </Box>
 )

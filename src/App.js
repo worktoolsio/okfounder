@@ -5,6 +5,7 @@ import LoginWrapper from './auth/LoginWrapper'
 import LogoutPage from './auth/LogoutPage'
 import Frame from './components/ui/Frame'
 import HomePage from './pages/HomePage'
+import PostPage from './pages/PostPage'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
                   <Route path="/logout">
                     <LogoutPage logout={logout} />
                   </Route>
+                  <Route path="/posts/:title" component={PostPage} />
                   <Route path="/">
                     <HomePage username={username} />
                   </Route>
