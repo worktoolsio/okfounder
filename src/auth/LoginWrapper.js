@@ -1,32 +1,24 @@
-import React from "react"
-import {
-  Box,
-  Flex,
-  Text,
-  Input,
-  Button,
-  FormControl,
-  FormLabel,
-  FormHelperText
-} from "@chakra-ui/core"
-import Header from "../ui/Header"
+/* eslint-disable react/state-in-constructor */
+import React from 'react'
+import { Box, Flex, Input, Button, FormControl, FormLabel, FormHelperText } from '@chakra-ui/core'
+import Header from '../ui/Header'
 
 export default class LoginWrapper extends React.Component {
-  state = { username: localStorage.getItem("username") || null }
+  state = { username: localStorage.getItem('username') || null }
 
   login = username => {
-    localStorage.setItem("username", username)
-    this.setState({ username: username })
+    localStorage.setItem('username', username)
+    this.setState({ username })
   }
 
   logout = () => {
-    localStorage.removeItem("username")
+    localStorage.removeItem('username')
     this.setState({ username: undefined })
   }
 
   render() {
-    let { username } = this.state
-    let inputRef = React.createRef()
+    const { username } = this.state
+    const inputRef = React.createRef()
     // If we are logged in, then pass the username to the children.
     if (username) {
       return this.props.children({ username, logout: this.logout })
@@ -35,23 +27,14 @@ export default class LoginWrapper extends React.Component {
     //  Otherwise, show a login form.
     return (
       <Flex direction="column" align="center">
-        <Box width={"100%"} maxWidth={"1000px"} pl={2} pr={2}>
+        <Box width="100%" maxWidth="1000px" pl={2} pr={2}>
           <Header />
 
-          <Box
-            maxW="700px"
-            borderWidth="1px"
-            rounded="lg"
-            p={6}
-            m={"auto"}
-            overflow="hidden"
-          >
+          <Box maxW="700px" borderWidth="1px" rounded="lg" p={6} m="auto" overflow="hidden">
             <FormControl>
-              <FormLabel >Username</FormLabel>
-              <Input  ref={inputRef} />
-              <FormHelperText>
-                Your email, or literally anything
-              </FormHelperText>
+              <FormLabel>Username</FormLabel>
+              <Input ref={inputRef} />
+              <FormHelperText>Your email, or literally anything</FormHelperText>
             </FormControl>
             <FormControl>
               <Button mt={4} onClick={() => this.login(inputRef.current.value)}>
