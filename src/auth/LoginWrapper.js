@@ -47,10 +47,10 @@ export default class LoginWrapper extends React.Component {
             overflow="hidden"
           >
             <FormControl>
-              <FormLabel >Username</FormLabel>
+              <FormLabel >Email</FormLabel>
               <Input  ref={inputRef} />
               <FormHelperText>
-                Your email, or literally anything
+                Your email
               </FormHelperText>
             </FormControl>
             <FormControl>

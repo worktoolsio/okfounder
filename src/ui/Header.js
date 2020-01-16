@@ -5,15 +5,18 @@ import Logo from "./Logo"
 const Header = ({children}) => {
 
     return <Flex
-         width="100%"
-         align="center"
+          width="100%"
+          align="center"
           justify="space-between"
           direction="row"
           p={4}
           m={4}
         >
           <Logo />
-          <Flex direction="row">
+          <Flex
+            direction="row"
+            justify="space-between"
+          >
             {children}
           </Flex>
         </Flex>
