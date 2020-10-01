@@ -6,6 +6,7 @@ import LogoutPage from "./auth/LogoutPage";
 import Frame from "./ui/Frame";
 import Home from "./Home";
 import CreateProfile from "./features/CreateProfile";
+import Connect from "./features/Connect";
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
                 </Route>
                 <Route path="/create-profile">
                   <CreateProfile username={username} />
+                </Route>
+                <Route path="/connect">
+                  <Connect username={username} />
                 </Route>
               </Switch>
             </Frame>

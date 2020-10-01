@@ -1,6 +1,7 @@
 import React from "react";
 import Avatar from "react-avatar";
-import { Text, Flex, Button, Input, FormLabel } from "@chakra-ui/core";
+import { Link } from "react-router-dom";
+import { Text, Flex, Button, Input, FormLabel, Box } from "@chakra-ui/core";
 import db from "../data/database";
 
 export default function Profile({ profile }) {
@@ -9,36 +10,46 @@ export default function Profile({ profile }) {
   if (!profile) return null;
 
   return (
-    <Flex
-      flexDirection="column"
-      width="35%"
-      backgroundColor="#f0f0f0"
-      padding="20px"
-      borderRadius="5px"
-      margin="0 auto"
-      position="relative"
-    >
-      <Button
-        backgroundColor={isEditingProfile ? "#e53e3e" : "#63b3ed"}
-        _hover={{ backgroundColor: isEditingProfile ? "#9b2c2c" : "#3182ce" }}
-        position="absolute"
-        right="20px"
-        color="#fff"
-        onClick={() => setEditingProfile(!isEditingProfile)}
+    <Flex flexDirection="column">
+      <Flex
+        flexDirection="column"
+        width="35%"
+        backgroundColor="#f0f0f0"
+        padding="20px"
+        borderRadius="5px"
+        margin="0 auto"
+        position="relative"
       >
-        {isEditingProfile ? "Cancel" : "Edit"}
-      </Button>
-      <Avatar
-        name={profile.name}
-        email={profile.email}
-        round
-        style={{ alignSelf: "center", marginBottom: "20px" }}
-      />
-      {isEditingProfile ? (
-        <EditProfile profile={profile} setEditingProfile={setEditingProfile} />
-      ) : (
-        <ViewProfile profile={profile} />
-      )}
+        <Button
+          backgroundColor={isEditingProfile ? "#e53e3e" : "#63b3ed"}
+          _hover={{ backgroundColor: isEditingProfile ? "#9b2c2c" : "#3182ce" }}
+          position="absolute"
+          right="20px"
+          color="#fff"
+          onClick={() => setEditingProfile(!isEditingProfile)}
+        >
+          {isEditingProfile ? "Cancel" : "Edit"}
+        </Button>
+        <Avatar
+          name={profile.name}
+          email={profile.email}
+          round
+          style={{ alignSelf: "center", marginBottom: "20px" }}
+        />
+        {isEditingProfile ? (
+          <EditProfile
+            profile={profile}
+            setEditingProfile={setEditingProfile}
+          />
+        ) : (
+          <ViewProfile profile={profile} />
+        )}
+      </Flex>
+      <Box alignSelf="center" marginTop="20px">
+        <Link to="/connect">
+          <Button variantColor="green">Connect with other founders</Button>
+        </Link>
+      </Box>
     </Flex>
   );
 }
