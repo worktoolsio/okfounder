@@ -13,7 +13,14 @@ var db = new localStorageDB(dbName, localStorage);
 
 // initialise users table with founders
 if (!db.tableExists("users")) {
-  db.createTable("users", ["username", "name", "email", "company", "jobTitle"]);
+  db.createTable("users", [
+    "username",
+    "name",
+    "email",
+    "company",
+    "jobTitle",
+    "connections",
+  ]);
 
   db.insert("users", {
     username: "sam",
@@ -21,6 +28,7 @@ if (!db.tableExists("users")) {
     email: "sam@stacker.app",
     company: "Stacker",
     jobTitle: "Founder",
+    connections: [],
   });
 
   db.insert("users", {
@@ -29,6 +37,7 @@ if (!db.tableExists("users")) {
     email: "michael@stacker.app",
     company: "Stacker",
     jobTitle: "Founder",
+    connections: [],
   });
 
   db.insert("users", {
@@ -37,6 +46,7 @@ if (!db.tableExists("users")) {
     email: "charlotte@stacker.app",
     company: "Stacker",
     jobTitle: "Founder",
+    connections: [],
   });
 
   db.commit();
