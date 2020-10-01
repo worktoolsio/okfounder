@@ -145,7 +145,9 @@ function ViewProfile({ profile }) {
       <Text width="40%" fontWeight="bold">
         {key}
       </Text>
-      <Text>{profile[key]}</Text>
+      <Text>
+        {key === "connections" ? profile.connections.length : profile[key]}
+      </Text>
     </Flex>
   ));
 }
