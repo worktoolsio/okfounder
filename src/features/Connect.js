@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Text, Grid, Flex, Box } from "@chakra-ui/core";
 import db from "../data/database";
 
-function useUsers() {
+function useUsers(username) {
   const [users, setUsers] = React.useState([]);
 
   React.useEffect(() => {
@@ -14,11 +14,11 @@ function useUsers() {
     }
   }, []);
 
-  return users;
+  return users.filter((user) => user.username !== username); // exclude user profile from connections
 }
 
-export default function Connect() {
-  const users = useUsers();
+export default function Connect({ username }) {
+  const users = useUsers(username);
 
   return (
     <div>
