@@ -4,7 +4,7 @@ import localStorageDB from "localstoragedb"
 // Initialise. If the database doesn't exist, it is created
 
 ////////////////////////////////////////////////
-// Change the dbName if you change the schema or 
+// Change the dbName if you change the schema or
 // initial data to reset the db
 const dbName = "userData_2"
 /////////////////////////////////////////////////
@@ -25,6 +25,12 @@ if( !db.tableExists("posts")) {
 	// commit the database to localStorage
 	// all create/drop/insert/update/delete operations should be committed
 	db.commit();
+}
+
+if( !db.tableExists("users")) {
+  db.createTable("users", ["username", "strengths", "contactInfo", "lookingFor", "name", "bio", "matches"]);
+
+  db.commit();
 }
 
 export default db
