@@ -76,7 +76,9 @@ export default function Founder({ username }) {
             {key}
           </Text>
           <Text>
-            {key === "connections" ? founder.connections.length : founder[key]}
+            {key === "connections"
+              ? founder?.connections?.length
+              : founder[key]}
           </Text>
         </Flex>
       ))}

@@ -146,7 +146,7 @@ function ViewProfile({ profile }) {
         {key}
       </Text>
       <Text>
-        {key === "connections" ? profile.connections.length : profile[key]}
+        {key === "connections" ? profile?.connections?.length : profile[key]}
       </Text>
     </Flex>
   ));
