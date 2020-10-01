@@ -7,6 +7,7 @@ import Frame from "./ui/Frame";
 import Home from "./Home";
 import CreateProfile from "./features/CreateProfile";
 import Connect from "./features/Connect";
+import Founder from "./features/Founder";
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
                 </Route>
                 <Route path="/connect">
                   <Connect username={username} />
+                </Route>
+                <Route path="/founder/:founder">
+                  <Founder />
                 </Route>
               </Switch>
             </Frame>
