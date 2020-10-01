@@ -63,7 +63,9 @@ export default function Founder({ username }) {
           <Text width="40%" fontWeight="bold">
             {key}
           </Text>
-          <Text>{founder[key]}</Text>
+          <Text>
+            {key === "connections" ? founder.connections.length : founder[key]}
+          </Text>
         </Flex>
       ))}
       {!isConnected ? (
