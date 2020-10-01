@@ -24,6 +24,18 @@ function useConnect(username) {
   const params = useParams();
   const [isConnected, setConnected] = React.useState(false);
 
+  // check if founders are already connected
+  React.useEffect(() => {
+    const user = db.queryAll("users", {
+      query: { username },
+      limit: 1,
+    });
+
+    if (user?.[0].connections?.includes(params.founder)) {
+      setConnected(true);
+    }
+  }, [params.founder, username]);
+
   function onConnect() {
     db.update("users", { username }, (row) => {
       row.connections = [...(row.connections || []), params.founder];
