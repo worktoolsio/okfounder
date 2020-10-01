@@ -11,18 +11,35 @@ const dbName = "userData_2";
 
 var db = new localStorageDB(dbName, localStorage);
 
-// if (!db.tableExists("users")) {
-//   db.createTable("users", ["username", "name", "email", "company", "jobTitle"]);
+// initialise users table with founders
+if (!db.tableExists("users")) {
+  db.createTable("users", ["username", "name", "email", "company", "jobTitle"]);
 
-//   db.insert("users", {
-//     username: "test",
-//     name: "nametest",
-//     email: "emailaddress",
-//     company: "sstacker",
-//     jobTitle: "dev",
-//   });
+  db.insert("users", {
+    username: "sam",
+    name: "Sam Davyson",
+    email: "sam@stacker.app",
+    company: "Stacker",
+    jobTitle: "Founder",
+  });
 
-//   db.commit();
-// }
+  db.insert("users", {
+    username: "michael",
+    name: "Michael Skelly",
+    email: "michael@stacker.app",
+    company: "Stacker",
+    jobTitle: "Founder",
+  });
+
+  db.insert("users", {
+    username: "charlotte",
+    name: "Charlotte Bone",
+    email: "charlotte@stacker.app",
+    company: "Stacker",
+    jobTitle: "Founder",
+  });
+
+  db.commit();
+}
 
 export default db;
