@@ -1,7 +1,7 @@
 import React from "react";
 import Avatar from "react-avatar";
 import { useParams } from "react-router-dom";
-import { Flex, Text } from "@chakra-ui/core";
+import { Flex, Text, Button } from "@chakra-ui/core";
 import db from "../data/database";
 
 function useFounder() {
@@ -20,8 +20,25 @@ function useFounder() {
   return founder ? founder[0] : founder;
 }
 
-export default function Founder() {
+function useConnect(username) {
+  const params = useParams();
+  const [isConnected, setConnected] = React.useState(false);
+
+  function onConnect() {
+    db.update("users", { username }, (row) => {
+      row.connections = [...(row.connections || []), params.founder];
+      return row;
+    });
+    db.commit();
+    setConnected(true);
+  }
+
+  return { isConnected, onConnect };
+}
+
+export default function Founder({ username }) {
   const founder = useFounder();
+  const { isConnected, onConnect } = useConnect(username);
 
   if (!founder) return null;
 
@@ -49,6 +66,23 @@ export default function Founder() {
           <Text>{founder[key]}</Text>
         </Flex>
       ))}
+      {!isConnected ? (
+        <Button
+          variantColor="green"
+          alignSelf="center"
+          marginTop="10px"
+          onClick={onConnect}
+        >
+          Connect
+        </Button>
+      ) : (
+        <Text marginTop="10px">
+          You are connected{" "}
+          <span role="img" aria-label="celebrate">
+            🎉
+          </span>
+        </Text>
+      )}
     </Flex>
   );
 }

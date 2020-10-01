@@ -31,7 +31,7 @@ function App() {
                   <Connect username={username} />
                 </Route>
                 <Route path="/founder/:founder">
-                  <Founder />
+                  <Founder username={username} />
                 </Route>
               </Switch>
             </Frame>
