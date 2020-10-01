@@ -8,7 +8,9 @@
     "@emotion/styled": "^10.0.23",
     "emotion-theming": "^10.0.19",
     "localstoragedb": "^2.3.2",
+    "prop-types": "^15.7.2",
     "react": "^16.12.0",
+    "react-avatar": "^3.9.7",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0"
