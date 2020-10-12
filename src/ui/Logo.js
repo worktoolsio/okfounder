@@ -1,10 +1,15 @@
-import React from "react"
-import { Heading, Icon } from "@chakra-ui/core"
+import React from "react";
+import { Heading, Icon } from "@chakra-ui/core";
+import { Link } from "react-router-dom";
 
 const Logo = () => {
-    return <Heading>
+  return (
+    <Heading>
+      <Link to="/">
         <Icon name="chat"></Icon>OkFounder
-      </Heading>
-}
+      </Link>
+    </Heading>
+  );
+};
 
-export default Logo
+export default Logo;
