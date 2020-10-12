@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import {
   Box,
   Flex,
@@ -7,29 +7,37 @@ import {
   Button,
   FormControl,
   FormLabel,
-  FormHelperText
-} from "@chakra-ui/core"
-import Header from "../ui/Header"
+  FormHelperText,
+} from "@chakra-ui/core";
+import Header from "../ui/Header";
+import db from "../data/database";
 
 export default class LoginWrapper extends React.Component {
-  state = { username: localStorage.getItem("username") || null }
+  state = {
+    username: localStorage.getItem("username") || null,
+  };
 
-  login = username => {
-    localStorage.setItem("username", username)
-    this.setState({ username: username })
-  }
+  login = (username) => {
+    localStorage.setItem("username", username);
+    this.setState({ username: username });
+  };
 
   logout = () => {
-    localStorage.removeItem("username")
-    this.setState({ username: undefined })
-  }
+    localStorage.removeItem("username");
+    this.setState({ username: undefined });
+  };
 
   render() {
-    let { username } = this.state
-    let inputRef = React.createRef()
+    let { username } = this.state;
+    let inputRef = React.createRef();
     // If we are logged in, then pass the username to the children.
     if (username) {
-      return this.props.children({ username, logout: this.logout })
+      const results = db.queryAll("founders", { query: { username } });
+      return this.props.children({
+        username,
+        logout: this.logout,
+        onboarded: results.length > 0,
+      });
     }
 
     //  Otherwise, show a login form.
@@ -39,7 +47,6 @@ export default class LoginWrapper extends React.Component {
           <Header />
 
           <Box
-            maxW="700px"
             borderWidth="1px"
             rounded="lg"
             p={6}
@@ -47,11 +54,9 @@ export default class LoginWrapper extends React.Component {
             overflow="hidden"
           >
             <FormControl>
-              <FormLabel >Username</FormLabel>
-              <Input  ref={inputRef} />
-              <FormHelperText>
-                Your email, or literally anything
-              </FormHelperText>
+              <FormLabel>Username</FormLabel>
+              <Input ref={inputRef} />
+              <FormHelperText>Your email, or literally anything</FormHelperText>
             </FormControl>
             <FormControl>
               <Button mt={4} onClick={() => this.login(inputRef.current.value)}>
@@ -61,6 +66,6 @@ export default class LoginWrapper extends React.Component {
           </Box>
         </Box>
       </Flex>
-    )
+    );
   }
 }
