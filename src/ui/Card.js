@@ -10,9 +10,9 @@ import {
 	Icon,
 } from "@chakra-ui/core";
 
-const Card = ({ title, author }) => {
-	let rating = 3;
-	let count = 42;
+const Card = ({ username, profile }) => {
+	// let rating = 3;
+	// let count = 42;
 	return (
 		<Box
 			maxW="sm"
@@ -21,46 +21,15 @@ const Card = ({ title, author }) => {
 			borderWidth="1px"
 			rounded="lg"
 			overflow="hidden"
+			p="4"
+			m="4"
 		>
-			<Box p="6">
-				<Box d="flex" alignItems="baseline">
-					<Badge rounded="full" px="2" variantColor="teal">
-						New
-					</Badge>
-				</Box>
-
-				<Box
-					mt="1"
-					fontWeight="semibold"
-					as="h4"
-					lineHeight="tight"
-					isTruncated
-				>
-					{title}
-				</Box>
-
-				<Box>
-					<Box as="span" color="gray.600" fontSize="sm">
-						By{" "}
-					</Box>
-					{author}
-				</Box>
-
-				<Box d="flex" mt="2" alignItems="center">
-					{Array(5)
-						.fill("")
-						.map((_, i) => (
-							<Icon
-								name="star"
-								key={i}
-								color={i < rating ? "teal.500" : "gray.300"}
-							/>
-						))}
-					<Box as="span" ml="2" color="gray.600" fontSize="sm">
-						{count} reviews
-					</Box>
-				</Box>
-			</Box>
+			<h1 style={{ fontSize: "2rem" }}>{username}:</h1>
+			<p style={{ fontSize: "1rem" }}>👴🏻: {profile.age}</p>
+			<p style={{ fontSize: "1rem" }}>😱 --> {profile.failure}</p>
+			<p style={{ fontSize: "1rem" }}>🗣 --> {profile.com}</p>
+			<p style={{ fontSize: "1rem" }}>🧠 --> {profile.know}</p>
+			<p style={{ fontSize: "1rem" }}>🤥 --> {profile.int}</p>
 		</Box>
 	);
 };

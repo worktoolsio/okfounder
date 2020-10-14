@@ -11,66 +11,44 @@ import db from "../data/database";
 import Card from "../ui/Card";
 
 export default class DataAccessDemo extends React.Component {
-	/*
-
-        This is a demo component to show you how to use the localStorage database
-
-    */
-
-	state = { posts: null };
+	state = { users: null };
 	inputRef = React.createRef();
 
-	createPost = () => {
-		const title = this.inputRef.current.value;
-		if (!title) return;
-		const post = {
-			title: title,
-			user: this.props.username,
-		};
-		db.insert("posts", post);
-		db.commit();
-		this.clearInput();
-		this.fetchUserPosts();
-	};
-
-	clearInput = () => {
-		this.inputRef.current.value = null;
-	};
-
 	componentDidMount() {
-		this.fetchUserPosts();
+		this.fetchUsers();
 	}
 
-	fetchUserPosts() {
-		const posts = db.queryAll("posts", {
-			query: { user: this.props.username },
+	fetchUsers() {
+		console.log(this.props);
+		const users = db.queryAll("users", {
+			query: {
+				failure: this.props.profile.failure,
+				com: this.props.profile.com,
+				know: this.props.profile.know,
+				int: this.props.profile.int,
+			},
 		});
-		this.setState({ posts });
+		this.setState({ users });
 	}
 
-	renderPosts() {
-		const { posts } = this.state;
-		if (!posts) return <Text>No posts yet</Text>;
-		return posts.map((post, index) => (
-			<Card title={post.title} author={post.user} key={index}></Card>
+	renderFounders() {
+		const { users } = this.state;
+		if (!users) return <Text>No posts yet</Text>;
+		return users.map((user, index) => (
+			<Card username={user.username} profile={user} key={index}></Card>
 		));
 	}
 
 	render() {
 		return (
 			<>
-				<Box maxW="sm" borderWidth="1px" rounded="lg" p={6} overflow="hidden">
-					<FormControl>
-						<FormLabel>Create a new post</FormLabel>
-						<Input ref={this.inputRef} />
-					</FormControl>
-					<FormControl>
-						<Button mt={4} onClick={this.createPost}>
-							Post
-						</Button>
-					</FormControl>
+				<Box borderWidth="1px" rounded="lg" p={6} overflow="hidden">
+					<h1 style={{ fontSize: "2rem", fontWeight: "bold" }}>
+						Welcome to our platform!
+					</h1>
+					<p>Based on your answers this are the best co-founder matches: </p>
+					<Box d="flex">{this.renderFounders()}</Box>
 				</Box>
-				{this.renderPosts()}
 			</>
 		);
 	}

@@ -19,7 +19,10 @@ import { Radio, RadioGroup } from "@chakra-ui/core";
 import Header from "../ui/Header";
 
 export default class LoginWrapper extends React.Component {
-	state = { username: localStorage.getItem("username") || null };
+	state = {
+		username: localStorage.getItem("username") || null,
+		profile: JSON.parse(localStorage.getItem("profile")) || null,
+	};
 
 	login = (username, ageRef, failureRef, comRef, knowRef, intRef) => {
 		const profile = {
@@ -30,11 +33,11 @@ export default class LoginWrapper extends React.Component {
 			know: knowRef.current.lastChild.value,
 			int: intRef.current.lastChild.value,
 		};
-		console.log(profile);
-		localStorage.setItem("profile", profile);
+		localStorage.setItem("profile", JSON.stringify(profile));
 
 		localStorage.setItem("username", username);
 		this.setState({ username: username });
+		this.setState({ profile: profile });
 	};
 
 	logout = () => {
@@ -51,6 +54,7 @@ export default class LoginWrapper extends React.Component {
 
 	render() {
 		let { username } = this.state;
+		let { profile } = this.state;
 
 		let nameRef = React.createRef();
 		let ageRef = React.createRef();
@@ -61,7 +65,11 @@ export default class LoginWrapper extends React.Component {
 
 		// If we are logged in, then pass the username to the children.
 		if (username) {
-			return this.props.children({ username, logout: this.logout });
+			return this.props.children({
+				username,
+				profile: profile,
+				logout: this.logout,
+			});
 		}
 
 		//  Otherwise, show a login form.

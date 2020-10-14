@@ -12,14 +12,14 @@ function App() {
 			<ThemeProvider theme={theme}>
 				<CSSReset />
 				<LoginWrapper>
-					{({ username, logout }) => (
+					{({ username, profile, logout }) => (
 						<Frame username={username}>
 							<Switch>
 								<Route path="/logout">
 									<LogoutPage logout={logout} />
 								</Route>
 								<Route path="/">
-									<Home username={username} />
+									<Home username={username} profile={profile} />
 								</Route>
 							</Switch>
 						</Frame>
