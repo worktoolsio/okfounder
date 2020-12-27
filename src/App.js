@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Tabs, TabList, TabPanels, TabPanel, Tab } from "@chakra-ui/react";
 import LoginWrapper from "./auth/LoginWrapper";
 import LogoutPage from "./auth/LogoutPage";
 import Frame from "./ui/Frame";
@@ -20,25 +19,14 @@ const App = () => {
                 <Route path="/logout">
                   <LogoutPage logout={logout} />
                 </Route>
-                <Route path="/">
-                  <Tabs>
-                    <TabList>
-                      <Tab>Home</Tab>
-                      <Tab>Matches</Tab>
-                      <Tab>Profile</Tab>
-                    </TabList>
-                    <TabPanels p="2rem">
-                      <TabPanel>
-                        <Home username={username} />
-                      </TabPanel>
-                      <TabPanel>
-                        <Matches username={username} />
-                      </TabPanel>
-                      <TabPanel>
-                        <Profile username={username} />
-                      </TabPanel>
-                    </TabPanels>
-                  </Tabs>
+                <Route path="/home">
+                  <Home username={username} />
+                </Route>
+                <Route path="/matches">
+                  <Matches username={username} />
+                </Route>
+                <Route path="/profile">
+                  <Profile username={username} />
                 </Route>
               </Switch>
             </Frame>

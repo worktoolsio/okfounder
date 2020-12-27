@@ -8,7 +8,7 @@ import {
   Box,
   Flex,
   Tag,
-  TagIcon,
+  Heading,
   TagRightIcon,
   TagCloseButton,
   TagLabel,
@@ -17,15 +17,20 @@ import { AddIcon } from "@chakra-ui/icons";
 // import DataAccessDemo from './features/DemoDataAccess'
 
 const Profile = ({ username }) => {
-  const [selectedSkills, setSelectedSkills] = useState([]);
-  const [remainingSkills, setRemainingSkills] = useState([
+  const skills = [
+    "administrative",
+    "communication",
     "design",
+    "UX/UI",
+    "finance",
     "marketing",
     "operations",
     "management",
     "programming",
     "sales",
-  ]);
+  ].sort();
+  const [selectedSkills, setSelectedSkills] = useState([]);
+  const [remainingSkills, setRemainingSkills] = useState(skills);
 
   const onSkillSetHandler = (skillSet, type) => {
     if (type === "remove") {
@@ -47,19 +52,31 @@ const Profile = ({ username }) => {
   };
 
   return (
-    <Box maxW="xl" borderWidth="1px" rounded="lg" p={6} overflow="hidden">
-      <FormLabel>Bio</FormLabel>
-      <Input />
-      <Input />
-      <FormControl>
+    <Box borderWidth="1px" rounded="lg" p={6} overflow="hidden">
+      <Heading>Profile</Heading>
+      <FormControl mt={6}>
+        <FormLabel>Name</FormLabel>
+        <Input />
+      </FormControl>
+      <FormControl mt={4}>
+        <FormLabel>Bio</FormLabel>
+        <Input />
+      </FormControl>
+      <FormControl mt={4}>
+        <FormLabel>Contact</FormLabel>
+        <Input />
+      </FormControl>
+      <FormControl mt={6}>
+        <FormLabel>Skills</FormLabel>
         <Flex
           direction="row"
           wrap="wrap"
-          mx={-1}
           borderWidth={1}
-          borderRadius={12}
+          borderRadius={6}
           borderColor="gray.200"
           p={1}
+          mb={2}
+          minH={10}
         >
           {selectedSkills.map((item) => {
             return (
@@ -77,6 +94,7 @@ const Profile = ({ username }) => {
             );
           })}
         </Flex>
+
         <Flex direction="row" wrap="wrap" mx={-1}>
           {remainingSkills.map((item) => {
             return (
@@ -93,7 +111,7 @@ const Profile = ({ username }) => {
           })}
         </Flex>
       </FormControl>
-      <FormControl mt={4}>
+      <FormControl mt={8}>
         <Button mr={2}>Cancel</Button>
         <Button colorScheme="teal">Save</Button>
       </FormControl>

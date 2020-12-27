@@ -9,6 +9,7 @@ const Header = ({ children }) => {
       align="center"
       justify="space-between"
       direction="row"
+      wrap="wrap"
       p={4}
       m={4}
     >
