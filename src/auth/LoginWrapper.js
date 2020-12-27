@@ -2,7 +2,6 @@ import React from "react";
 import {
   Box,
   Flex,
-  Text,
   Input,
   Button,
   FormControl,
@@ -10,6 +9,7 @@ import {
   FormHelperText,
 } from "@chakra-ui/react";
 import Header from "../ui/Header";
+import { Redirect } from "react-router-dom";
 
 export default class LoginWrapper extends React.Component {
   state = { username: localStorage.getItem("username") || null };
@@ -35,9 +35,9 @@ export default class LoginWrapper extends React.Component {
     //  Otherwise, show a login form.
     return (
       <Flex direction="column" align="center">
+        <Redirect to="/explore"></Redirect>
         <Box width={"100%"} maxWidth={"1000px"} pl={2} pr={2}>
           <Header />
-
           <Box
             maxW="700px"
             borderWidth="1px"

@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoginWrapper from "./auth/LoginWrapper";
 import LogoutPage from "./auth/LogoutPage";
 import Frame from "./ui/Frame";
-import Home from "./Home";
-import Matches from "./Matches.js";
-import Profile from "./Profile";
+import Explore from "./pages/Explore";
+import Matches from "./pages/Matches";
+import Profile from "./pages/Profile";
 import { ChakraProvider } from "@chakra-ui/react";
 
 const App = () => {
@@ -19,8 +19,8 @@ const App = () => {
                 <Route path="/logout">
                   <LogoutPage logout={logout} />
                 </Route>
-                <Route path="/home">
-                  <Home username={username} />
+                <Route path="/explore">
+                  <Explore username={username} />
                 </Route>
                 <Route path="/matches">
                   <Matches username={username} />

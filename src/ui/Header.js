@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Flex, Link, Text } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import Logo from "./Logo";
 
 const Header = ({ children }) => {

@@ -1,10 +1,12 @@
 import React from "react";
-import { Heading, Icon } from "@chakra-ui/react";
+import { Heading } from "@chakra-ui/react";
+import { ChatIcon } from "@chakra-ui/icons";
 
 const Logo = () => {
   return (
     <Heading>
-      <Icon name="chat"></Icon>OkFounder
+      <ChatIcon />
+      OkFounder
     </Heading>
   );
 };

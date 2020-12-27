@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Box, Flex, Text } from "@chakra-ui/react";
+import { Button, Flex } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import Header from "./Header";
 
@@ -13,9 +13,8 @@ const Frame = ({ children, username }) => {
       >
         <Header>
           <Button mr={2}>
-            <Link to="/home">Home</Link>
+            <Link to="/explore">Explore</Link>
           </Button>
-          {/* <Link to="/home">Home</Link> */}
           <Button mr={2}>
             <Link to="/matches">Matches</Link>
           </Button>
