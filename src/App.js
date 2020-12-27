@@ -1,16 +1,17 @@
-import React from "react"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import { ThemeProvider, theme, CSSReset } from "@chakra-ui/core"
-import LoginWrapper from "./auth/LoginWrapper"
-import LogoutPage from "./auth/LogoutPage"
-import Frame from "./ui/Frame"
-import Home from "./Home"
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import LoginWrapper from "./auth/LoginWrapper";
+import LogoutPage from "./auth/LogoutPage";
+import Frame from "./ui/Frame";
+import Explore from "./pages/Explore";
+import Matches from "./pages/Matches";
+import Profile from "./pages/Profile";
+import { ChakraProvider } from "@chakra-ui/react";
 
-function App() {
+const App = () => {
   return (
-    <Router>
-      <ThemeProvider theme={theme}>
-        <CSSReset />
+    <ChakraProvider>
+      <Router>
         <LoginWrapper>
           {({ username, logout }) => (
             <Frame username={username}>
@@ -18,16 +19,22 @@ function App() {
                 <Route path="/logout">
                   <LogoutPage logout={logout} />
                 </Route>
-                <Route path="/">
-                  <Home username={username} />
+                <Route path="/explore">
+                  <Explore username={username} />
+                </Route>
+                <Route path="/matches">
+                  <Matches username={username} />
+                </Route>
+                <Route path="/profile">
+                  <Profile username={username} />
                 </Route>
               </Switch>
             </Frame>
           )}
         </LoginWrapper>
-      </ThemeProvider>
-    </Router>
-  )
-}
+      </Router>
+    </ChakraProvider>
+  );
+};
 
-export default App
+export default App;
