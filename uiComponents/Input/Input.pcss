@@ -1,0 +1,78 @@
+.__SCOPE {
+  display: block;
+  cursor: pointer;
+
+  &.disabled * {
+    cursor: not-allowed;
+    opacity: 0.75;
+  }
+
+  > .topLabel {
+    font-size: var(--typography-size-f0);
+    font-weight: var(--typography-weight-bold);
+    line-height: 1;
+    text-transform: none;
+    padding: 12px var(--spacing-tight) 0 var(--spacing-tight);
+    display: flex;
+    align-items: center;
+    background-color: var(--colors-white);
+  }
+
+  > .subLabel {
+    font-size: var(--typography-size-f1);
+    margin-top: var(--spacing-small);
+    display: flex;
+    align-items: center;
+
+    > svg {
+      display: block;
+      margin-right: 3px;
+    }
+  }
+
+  > .inputContainer {
+    position: relative;
+    background: var(--colors-white);
+
+    > .loaderContainer {
+      position: relative;
+      height: var(--spacing-finger);
+      align-items: flex-start;
+      padding: 0 var(--spacing-tight);
+    }
+
+    > input,
+    > textarea {
+      cursor: text;
+      background: none;
+      display: block;
+      font-size: var(--typography-size-f2);
+      padding: 0 var(--spacing-tight);
+      resize: none;
+      transition: background-color 200ms ease-out, border 200ms ease-out;
+      width: 100%;
+      line-height: 1;
+      height: var(--spacing-finger);
+      border: none;
+
+      &::placeholder {
+        color: #aaa;
+      }
+    }
+
+    > textarea {
+      padding: 8px var(--spacing-tight);
+      height: auto;
+    }
+
+    > svg {
+      left: 15px;
+      position: absolute;
+      top: 15px;
+    }
+  }
+
+  &.hasIcon > div > input {
+    padding-left: 43px;
+  }
+}

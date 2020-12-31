@@ -1,23 +1,31 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+# node modules should never be commit
+**/node_modules/
+
+# local vars & env vars
+**/.env
+**/.env.local
+**/.vercel
+**/.next
+**/.env*.local
 
 # testing
-/coverage
-
-# production
-/build
+coverage
 
 # misc
 .DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
 
+# mongod data
+data
+
+# build target directories should stay on your machine
+**/bin
+**/dist
+
+# debug dumps should stay on your machine
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+

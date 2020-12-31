@@ -1,0 +1,124 @@
+.__SCOPE {
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  letter-spacing: 0.25px;
+  line-height: 1;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 0 var(--spacing-small);
+  position: relative;
+  text-decoration: none;
+  height: var(--spacing-finger);
+  border: 2px solid #00000066;
+  width: 100%;
+  background: none;
+  border-radius: var(--spacing-small);
+  text-decoration: none;
+  white-space: nowrap;
+  text-align: center;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &.baseButton {
+    background-color: var(--colors-main);
+    transition: background-color 200ms ease-out, border 200ms ease-out,
+      box-shadow 200ms ease-out;
+    box-shadow: var(--shadow-lighter);
+
+    &:hover {
+      box-shadow: var(--shadow-light);
+    }
+  }
+
+  &.secondary {
+    transition: background-color 200ms ease-out, border 200ms ease-out,
+      box-shadow 200ms ease-out;
+    box-shadow: var(--shadow-lighter);
+
+    &:hover {
+      box-shadow: var(--shadow-light);
+    }
+  }
+
+  &.small {
+    border-radius: var(--spacing-xs);
+    height: var(--spacing-regular);
+    font-size: var(--typography-size-f1);
+    padding: 0 var(--spacing-small);
+
+    > .children {
+      > .label {
+        font-size: var(--typography-size-f1);
+      }
+
+      > .icon {
+        height: 20px;
+        width: 20px;
+      }
+    }
+  }
+
+  > .children {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    > .icon {
+      background-color: rgba(0, 0, 0, 0.1);
+      border-radius: 100px;
+      height: 28px;
+      width: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+
+      > svg {
+        display: block;
+      }
+    }
+
+    > .noIcon {
+      flex-shrink: 0;
+      width: 28px;
+      display: flex;
+    }
+
+    > .label {
+      flex-grow: 1;
+      display: block;
+      font-size: var(--typography-size-f3);
+      font-weight: var(--typography-weight-normal);
+      padding: 0 var(--spacing-small);
+    }
+  }
+
+  &.disabled {
+    opacity: 0.5;
+  }
+
+  &.disabled,
+  &.isLoading {
+    box-shadow: none;
+    cursor: not-allowed;
+
+    &:hover {
+      box-shadow: none;
+      transform: none;
+    }
+  }
+
+  &.link {
+    display: inline-block;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

@@ -1,37 +1,64 @@
 {
-  "name": "cofounder-dating-project",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@chakra-ui/core": "^0.4.1",
-    "@emotion/core": "^10.0.22",
-    "@emotion/styled": "^10.0.23",
-    "emotion-theming": "^10.0.19",
-    "localstoragedb": "^2.3.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0"
-  },
+  "name": "okfounder",
+  "author": "Fabien Huet",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev_database": "mkdir -p data && mongod --dbpath=data --port 3001",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc --pretty --noEmit",
+    "format": "prettier --write **/*.{js,ts,tsx}",
+    "lint": "eslint . --ext ts --ext tsx --ext js"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn run type-check"
+    }
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+  "lint-staged": {
+    "*.@(ts|tsx)": [
+      "yarn lint",
+      "yarn format"
     ]
+  },
+  "dependencies": {
+    "@mdi/js": "^5.8.55",
+    "@now/node": "^1.8.1",
+    "acta": "^3.0.13",
+    "dotenv": "^8.2.0",
+    "mongodb": "^3.6.3",
+    "next": "^10.0.3",
+    "pcss-loader": "^1.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-styles-injector": "^1.1.5",
+    "sass": "^1.30.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "@svgr/webpack": "^5.5.0",
+    "@testing-library/react": "^11.2.2",
+    "@types/jest": "^26.0.18",
+    "@types/mongodb": "^3.6.3",
+    "@types/node": "^14.14.11",
+    "@types/react": "^17.0.0",
+    "@types/testing-library__react": "^10.2.0",
+    "@typescript-eslint/eslint-plugin": "^4.9.1",
+    "@typescript-eslint/parser": "^4.9.1",
+    "babel-loader": "^8.2.2",
+    "eslint": "^7.15.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-react": "^7.21.5",
+    "husky": "^4.3.5",
+    "lint-staged": "^10.5.3",
+    "prettier": "^2.2.1",
+    "stylelint": "^13.8.0",
+    "stylelint-config-standard": "^20.0.0",
+    "typescript": "^4.1.2",
+    "webpack": "^5.10.0"
   }
 }

@@ -1,0 +1,36 @@
+export enum EAppColors {
+  PRIMARY = '#2a9d8f',
+  PRIMARY_LIGHT = '#1bccb6',
+  PRIMARY_DARK = '#264653',
+  PRIMARY_TEXT = '#1a3066',
+  PRIMARY_TEXT_LIGHT = '#4a5e92',
+  SECONDARY_TEXT = '#1a3066',
+  BG = '#0c0f14',
+
+  WHITE = '#fff',
+
+  ACCENT = '#f4a261',
+  ACCENT_LIGHT = '#e9c46a',
+  ACCENT_DARK = '#e76f51',
+
+  SUCCESS = '#69bfa0',
+  SUCCESS_LIGHT = '#b8e5d3',
+  SUCCESS_LIGHTER = '#dff2ea',
+  SUCCESS_DARK = '#008055',
+  SUCCESS_DARKER = '#006647',
+  SUCCESS_TEXT = '#191919',
+
+  WARNING = '#e8a126',
+  WARNING_LIGHT = '#ffdea6',
+  WARNING_LIGHTER = '#fff1d9',
+  WARNING_DARK = '#cc8100',
+  WARNING_DARKER = '#994d00',
+  WARNING_TEXT = '#191919',
+
+  ERROR = '#e58989',
+  ERROR_LIGHT = '#f2cece',
+  ERROR_LIGHTER = '#faebeb',
+  ERROR_DARK = '#b20000',
+  ERROR_DARKER = '#990000',
+  ERROR_TEXT = '#191919',
+}

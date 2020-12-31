@@ -1,0 +1,120 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  vertical-align: baseline;
+  color: inherit;
+  touch-action: manipulation;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+html {
+  overscroll-behavior: none;
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  font-size: var(--typography-size-f2);
+  line-height: 1.5;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'IBM Plex Mono', monospace;
+  text-rendering: optimizeLegibility;
+  word-wrap: break-word;
+  overscroll-behavior: none;
+  overflow-x: hidden;
+  color: var(--colors-primaryText);
+  background: #f6f6f6;
+  height: 100%;
+  overflow: auto;
+}
+
+#__next {
+  height: fill-available;
+}
+
+a,
+button {
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+input {
+  user-select: initial;
+  touch-action: manipulation;
+}
+
+b {
+  font-weight: 700;
+}
+
+i {
+  font-style: italic;
+}
+
+::-moz-selection {
+  color: var(--colors-white);
+  background: var(--colors-primary);
+}
+
+::selection {
+  color: var(--colors-white);
+  background: var(--colors-primary);
+}
+
+h1 {
+  font-size: var(--typography-size-f6);
+  font-weight: var(--typography-weight-normal);
+  color: var(--colors-secondaryText);
+}
+h2 {
+  font-size: var(--typography-size-f5);
+  font-weight: var(--typography-weight-normal);
+  color: var(--colors-secondaryText);
+}
+h3 {
+  font-size: var(--typography-size-f4);
+  font-weight: var(--typography-weight-normal);
+  color: var(--colors-secondaryText);
+}
+h4 {
+  font-size: var(--typography-size-f3);
+  font-weight: var(--typography-weight-normal);
+  color: var(--colors-secondaryText);
+}
+
+@media (min-width: 700px) {
+  h1 {
+    font-size: var(--typography-size-f7);
+  }
+  h2 {
+    font-size: var(--typography-size-f6);
+  }
+  h3 {
+    font-size: var(--typography-size-f5);
+  }
+  h4 {
+    font-size: var(--typography-size-f4);
+  }
+}
+
+.strong,
+strong {
+  font-weight: var(--typography-weight-bold);
+}
+
+.small {
+  font-size: var(--typography-size-f1);
+}
+
+.caption {
+  font-size: var(--typography-size-f0);
+}
+
+em {
+  font-style: italic;
+}
