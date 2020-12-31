@@ -1,0 +1,7 @@
+# Disallow
+User-agent: Googlebot
+Disallow: /app/
+
+# Allow
+User-agent: *
+Allow: /
