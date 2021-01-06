@@ -10,6 +10,8 @@ const Frame = ({ children, username }) => {
         <Header>
           <Text>
             Hello {username}! <Link to="/logout">Log Out</Link>
+            &nbsp;
+            <Link to="/edit-profile">Edit profile</Link>
           </Text>
         </Header>
         {children}

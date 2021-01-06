@@ -1,6 +1,7 @@
 import React from 'react'
-import { Box, Flex, Link, Text } from "@chakra-ui/core"
+import { Flex } from "@chakra-ui/core"
 import Logo from "./Logo"
+import {Link} from 'react-router-dom'
 
 const Header = ({children}) => {
 
@@ -11,13 +12,13 @@ const Header = ({children}) => {
           direction="row"
           p={4}
           m={4}
-        >
-          <Logo />
+    >
+          <Link to="/"><Logo /></Link>
           <Flex direction="row">
             {children}
           </Flex>
         </Flex>
-      
+
 
 
 }
