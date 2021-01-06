@@ -1,21 +1,21 @@
 import React from 'react'
-import { Box, Image, Flex, Badge, Text, Button, StarIcon, Icon } from "@chakra-ui/core";
+import { Box, Badge, Icon } from "@chakra-ui/core";
 
 
 const Card = ({title, author}) => {
- 
+
     let rating = 3
     let count = 42
     return (
       <Box maxW="sm" mb={4} mt={4} borderWidth="1px" rounded="lg" overflow="hidden">
-       
+
         <Box p="6">
           <Box d="flex" alignItems="baseline">
             <Badge rounded="full" px="2" variantColor="teal">
               New
             </Badge>
           </Box>
-  
+
           <Box
             mt="1"
             fontWeight="semibold"
@@ -25,14 +25,14 @@ const Card = ({title, author}) => {
           >
             {title}
           </Box>
-  
+
           <Box>
             <Box as="span" color="gray.600" fontSize="sm">
-              By{" "} 
+              By{" "}
             </Box>
             {author}
           </Box>
-  
+
           <Box d="flex" mt="2" alignItems="center">
             {Array(5)
               .fill("")

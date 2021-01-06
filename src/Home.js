@@ -1,10 +1,13 @@
 import React from 'react'
-import Card from './ui/Card'
-import DataAccessDemo from './features/DemoDataAccess'
+import Search from './Search'
+import Wall from './Wall'
 
 const Home = ({username}) => {
-    return <DataAccessDemo username={username} />
-    
+    return <>
+        <Search />
+        <Wall username={username} />
+    </>
+
 
 }
 
@@ -12,4 +15,3 @@ export default Home
 
 
 
-              
